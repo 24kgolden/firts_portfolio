@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edwar Ramírez | Portfolio</title>
+  <!-- Fuente Fira Code -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet" />
+  <!-- Íconos de Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="coffee-icon.png" type="image/png" />
+</head>
+
+<body>
+  <!-- Fondo Matrix (canvas) -->
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- Ventana estilo IDE -->
+  <div class="ide-window">
+    <div class="ide-header">
+      <div class="window-buttons">
+        <span class="circle red"></span>
+        <span class="circle yellow"></span>
+        <span class="circle green"></span>
+      </div>
+      <div class="ide-title">Edwar Ramírez Portfolio</div>
+    </div>
+    <div class="ide-content">
+      <!-- Navegación -->
+      <nav>
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Encabezado principal -->
+      <header>
+        <h1 class="main-title">Edwar Ramírez</h1>
+        <p class="subtitle">Software Engineer | Backend Developer</p>
+      </header>
+
+      <!-- Sección About -->
+      <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+          <img src="your-photo.png" alt="Edwar Ramírez" class="profile-pic" />
+          <p>
+            I am currently a Software Engineering student in my fifth semester.
+            I enjoy demonstrating my IT skills by participating in both university
+            and external events. I have earned certificates for participation and awards.
+          </p>
+        </div>
+      </section>
+
+      <!-- Sección Projects -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+          <!-- Tarjeta: Web Project -->
+          <a href="https://24kgolden.github.io/web/" target="_blank" class="project-card">
+            <h3>
+              <i class="fab fa-html5"></i>
+              <i class="fab fa-css3-alt"></i>
+              <i class="fab fa-js"></i>
+              Web Project
+            </h3>
+            <p>Developed with HTML, CSS and JavaScript.</p>
+          </a>
+
+          <!-- Tarjeta: Peluqueria Canina -->
+          <a href="https://github.com/24kgolden/Proyecto-Crud?tab=readme-ov-file" target="_blank" class="project-card">
+            <img src="peluqueria.png" alt="Peluqueria Canina" class="project-image" />
+            <h3>Peluqueria Canina</h3>
+            <p>Project developed in Java and MySQL.</p>
+            <div class="project-skills">
+              <i class="fab fa-java"></i>
+              <i class="fa-brands fa-mysql"></i>
+            </div>
+          </a>
+
+          <!-- Tarjeta: Cuadro de código Java -->
+          <div class="project-card code-box">
+            <h3>Java Code</h3>
+            <pre>
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+              </pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Skills -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+          <div class="skill-item">
+            <i class="fab fa-html5"></i>
+            <span>HTML</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-css3-alt"></i>
+            <span>CSS</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-java"></i>
+            <span>Java</span>
+          </div>
+          <div class="skill-item">
+            <i class="fa-brands fa-mysql"></i>
+            <span>MySQL</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-docker"></i>
+            <span>Docker</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-leaf"></i>
+            <span>Spring Boot</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Contact -->
+      <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/edwar-del-castillo-11b995270/" target="_blank" class="contact-card">
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="mailto:edwarddelcastillo4@gmail.com" class="contact-card">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email</span>
+          </a>
+          <a href="https://github.com/24kgolden" target="_blank" class="contact-card">
+            <i class="fab fa-github"></i>
+            <span>GitHub</span>
+          </a>
+        </div>
+        <form action="https://getform.io/f/adrnrela" method="POST">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="email" name="email" placeholder="Your Email" required />
+          <textarea placeholder="Your Message" required></textarea>
+          <!-- add hidden Honeypot input to prevent spams -->
+          <input type="hidden" name="_gotcha" style="display:none !important">
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <p>© 2025 Edwar Ramírez | ☕ With coffee and code</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

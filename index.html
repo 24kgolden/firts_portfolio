@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edwar Ramírez | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="coffee-icon.png" type="image/png"/>
+</head>
+<body>
+
+  <canvas id="matrixCanvas"></canvas>
+
+  <!-- ─────────────────────────────────────
+       NAV
+  ───────────────────────────────────── -->
+  <nav class="nav" id="mainNav">
+    <a href="#home" class="nav-logo">ER<span class="accent">.</span></a>
+
+    <div class="nav-badge">
+      <span class="badge-dot"></span>
+      <span data-i18n="nav_status">Studying · Building · Learning</span>
+    </div>
+
+    <ul class="nav-links" id="desktopLinks">
+      <li><a href="#about"    data-i18n="nav_about">About</a></li>
+      <li><a href="#timeline" data-i18n="nav_timeline">Timeline</a></li>
+      <li><a href="#certs"    data-i18n="nav_certs">Certs</a></li>
+      <li><a href="#projects" data-i18n="nav_projects">Projects</a></li>
+      <li><a href="#skills"   data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#github"   data-i18n="nav_github">GitHub</a></li>
+      <li><a href="#contact"  data-i18n="nav_contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <!-- Language pill -->
+      <div class="lang-pill" id="langPill" role="button" tabindex="0" aria-label="Toggle language">
+        <span class="lp-track" id="lpTrack"></span>
+        <span class="lp-opt lp-active" id="lpEN" data-l="en">EN</span>
+        <span class="lp-opt" id="lpES" data-l="es">ES</span>
+      </div>
+
+      <!-- Menu button -->
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <span class="menu-btn-text" data-i18n="nav_menu">MENU</span>
+        <span class="menu-btn-icon">
+          <span></span>
+          <span></span>
+        </span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─────────────────────────────────────
+       MENU OVERLAY
+  ───────────────────────────────────── -->
+  <div class="menu-overlay" id="menuOverlay">
+    <div class="menu-overlay-inner">
+
+      <button class="menu-close" id="menuClose" aria-label="Close menu">
+        <span class="mc-icon"><span></span><span></span></span>
+        <span data-i18n="nav_close">CLOSE</span>
+      </button>
+
+      <nav class="menu-nav">
+        <a href="#about"    class="menu-link"><span class="ml-n">01</span><span class="ml-t" data-i18n="nav_about">About</span><span class="ml-arr">→</span></a>
+        <a href="#timeline" class="menu-link"><span class="ml-n">02</span><span class="ml-t" data-i18n="nav_timeline">Timeline</span><span class="ml-arr">→</span></a>
+        <a href="#certs"    class="menu-link"><span class="ml-n">03</span><span class="ml-t" data-i18n="nav_certs">Certs</span><span class="ml-arr">→</span></a>
+        <a href="#projects" class="menu-link"><span class="ml-n">04</span><span class="ml-t" data-i18n="nav_projects">Projects</span><span class="ml-arr">→</span></a>
+        <a href="#skills"   class="menu-link"><span class="ml-n">05</span><span class="ml-t" data-i18n="nav_skills">Skills</span><span class="ml-arr">→</span></a>
+        <a href="#github"   class="menu-link"><span class="ml-n">06</span><span class="ml-t" data-i18n="nav_github">GitHub</span><span class="ml-arr">→</span></a>
+        <a href="#contact"  class="menu-link"><span class="ml-n">07</span><span class="ml-t" data-i18n="nav_contact">Contact</span><span class="ml-arr">→</span></a>
+      </nav>
+
+      <div class="menu-footer">
+        <div class="menu-socials">
+          <a href="https://github.com/24kgolden" target="_blank" rel="noopener">GitHub ↗</a>
+          <a href="https://www.linkedin.com/in/edwar-ram%C3%ADrez-11b995270/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://x.com/666_serpico" target="_blank" rel="noopener">X / Twitter ↗</a>
+        </div>
+        <p class="menu-copy">© <span id="yr2"></span> Edwar Ramírez</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────
+       HERO
+  ───────────────────────────────────── -->
+  <section class="hero" id="home">
+    <div class="hero-side hero-side--l">PORTFOLIO · 2025</div>
+    <div class="hero-side hero-side--r">BACKEND · JAVA · SYSTEMS</div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">&lt; software.engineer /&gt;</p>
+      <h1 class="hero-title">
+        <span class="scramble" data-text="EDWAR">EDWAR</span>
+        <span class="scramble accent" data-text="RAMÍREZ">RAMÍREZ</span>
+      </h1>
+      <p class="hero-sub"><span id="typingEl"></span></p>
+      <div class="hero-status">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero_available">Available for opportunities</span>
+      </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-solid"><i class="fas fa-code"></i> <span data-i18n="btn_projects">View Projects</span></a>
+        <a href="#contact"  class="btn-outline"><span data-i18n="btn_contact">Get In Touch</span></a>
+      </div>
+      <div class="hero-scroll">
+        <span data-i18n="hero_scroll">Scroll</span>
+        <span class="scroll-bar"></span>
+      </div>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="terminal" id="heroTerminal">
+        <div class="terminal-head">
+          <span class="t-btn t-red"></span>
+          <span class="t-btn t-yellow"></span>
+          <span class="t-btn t-green"></span>
+          <span class="t-label">edwar@portfolio:~</span>
+          <span class="t-hint">try typing a command ↓</span>
+        </div>
+        <div class="terminal-body" id="termBody">
+          <p class="tl"><span class="tp">$</span> <span class="tc">whoami</span></p>
+          <p class="tl to" data-i18n="t_whoami">Edwar Ramírez — Backend Developer</p>
+          <p class="tg"></p>
+          <p class="tl"><span class="tp">$</span> <span class="tc">cat skills.txt</span></p>
+          <p class="tl to"><span class="tk">languages </span><span class="tv">Java · JavaScript · SQL</span></p>
+          <p class="tl to"><span class="tk">frameworks</span><span class="tv">Spring Boot · HTML · CSS</span></p>
+          <p class="tl to"><span class="tk">tools     </span><span class="tv">Docker · Git · MySQL</span></p>
+          <p class="tg"></p>
+          <p class="tl"><span class="tp">$</span> <span class="tc">ls projects/</span></p>
+          <p class="tl to ta">LoginValidator/&nbsp;&nbsp;RolesPerms/</p>
+          <p class="tl to ta">PeluqueriaCanina/</p>
+          <p class="tg"></p>
+          <!-- Interactive input line -->
+          <p class="tl t-input-line">
+            <span class="tp">$</span>
+            <span class="t-input" id="termInput" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off"></span>
+            <span class="t-cursor" id="termCursor">█</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee">
+    <div class="marquee-inner">
+      <span>Java</span><span class="mx">✦</span><span>Spring Boot</span><span class="mx">✦</span>
+      <span>MySQL</span><span class="mx">✦</span><span>Docker</span><span class="mx">✦</span>
+      <span>Git</span><span class="mx">✦</span><span>HTML5</span><span class="mx">✦</span>
+      <span>CSS3</span><span class="mx">✦</span><span>JavaScript</span><span class="mx">✦</span>
+      <span>Backend Dev</span><span class="mx">✦</span><span>OOP</span><span class="mx">✦</span>
+      <span>REST APIs</span><span class="mx">✦</span><span>Linux</span><span class="mx">✦</span>
+      <span>Java</span><span class="mx">✦</span><span>Spring Boot</span><span class="mx">✦</span>
+      <span>MySQL</span><span class="mx">✦</span><span>Docker</span><span class="mx">✦</span>
+      <span>Git</span><span class="mx">✦</span><span>HTML5</span><span class="mx">✦</span>
+      <span>CSS3</span><span class="mx">✦</span><span>JavaScript</span><span class="mx">✦</span>
+      <span>Backend Dev</span><span class="mx">✦</span><span>OOP</span><span class="mx">✦</span>
+      <span>REST APIs</span><span class="mx">✦</span><span>Linux</span><span class="mx">✦</span>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────────────────
+       ABOUT
+  ───────────────────────────────────── -->
+  <section class="section" id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">01</span>
+        <h2 data-i18n="about_title">About Me</h2>
+        <span class="sec-line"></span>
+      </div>
+
+      <div class="bento">
+        <div class="bcard bcard--photo">
+          <div class="bcorner bcorner--tl">+</div><div class="bcorner bcorner--tr">+</div>
+          <div class="bcorner bcorner--bl">+</div><div class="bcorner bcorner--br">+</div>
+          <div class="photo-wrap"><img src="your-photo.png" alt="Edwar Ramírez" class="photo"/></div>
+          <p class="photo-name">Hello.&nbsp;<span class="accent" data-i18n="about_hi">I'm Edwar.</span></p>
+          <div class="tags">
+            <span>Java</span><span>Spring Boot</span><span>MySQL</span><span>Docker</span><span>Git</span>
+          </div>
+        </div>
+
+        <div class="bcard bcard--text">
+          <div class="bcorner bcorner--tl">+</div><div class="bcorner bcorner--tr">+</div>
+          <div class="bcorner bcorner--bl">+</div><div class="bcorner bcorner--br">+</div>
+          <p data-i18n="about_p1">Software Engineering student in my fifth semester, passionate about <span class="accent">backend development</span> and building clean, efficient systems from the ground up.</p>
+          <p data-i18n="about_p2">I push my limits through university events and external competitions. I believe in <span class="accent">learning by building</span> — one project at a time.</p>
+        </div>
+
+        <div class="bcard bcard--stat">
+          <div class="bcorner bcorner--tl">+</div><div class="bcorner bcorner--tr">+</div>
+          <div class="bcorner bcorner--bl">+</div><div class="bcorner bcorner--br">+</div>
+          <span class="stat-n">5<span class="accent">+</span></span>
+          <span class="stat-l" data-i18n="stat_sem">Semesters</span>
+        </div>
+        <div class="bcard bcard--stat">
+          <div class="bcorner bcorner--tl">+</div><div class="bcorner bcorner--tr">+</div>
+          <div class="bcorner bcorner--bl">+</div><div class="bcorner bcorner--br">+</div>
+          <span class="stat-n">4<span class="accent">+</span></span>
+          <span class="stat-l" data-i18n="stat_proj">Projects</span>
+        </div>
+        <div class="bcard bcard--stat">
+          <div class="bcorner bcorner--tl">+</div><div class="bcorner bcorner--tr">+</div>
+          <div class="bcorner bcorner--bl">+</div><div class="bcorner bcorner--br">+</div>
+          <span class="stat-n accent">∞</span>
+          <span class="stat-l" data-i18n="stat_coffee">Coffees</span>
+        </div>
+
+        <div class="bcard bcard--now">
+          <div class="bcorner bcorner--tl">+</div><div class="bcorner bcorner--tr">+</div>
+          <div class="bcorner bcorner--bl">+</div><div class="bcorner bcorner--br">+</div>
+          <p class="now-label"><span class="accent">//</span> <span data-i18n="now_title">Currently</span></p>
+          <ul>
+            <li><span class="badge-dot"></span><span data-i18n="now_1">Studying Software Engineering</span></li>
+            <li><span class="badge-dot dim"></span><span data-i18n="now_2">Building Java projects</span></li>
+            <li><span class="badge-dot dim"></span><span data-i18n="now_3">Learning Spring Boot deeply</span></li>
+            <li><span class="badge-dot dim"></span><span data-i18n="now_4">Open to opportunities</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       TIMELINE
+  ───────────────────────────────────── -->
+  <section class="section" id="timeline">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">02</span>
+        <h2 data-i18n="tl_title">Timeline</h2>
+        <span class="sec-line"></span>
+      </div>
+      <p class="sec-intro" data-i18n="tl_intro">My journey — education, milestones &amp; achievements.</p>
+
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="tl-meta"><span class="tl-yr">2024 — Now</span><span class="tl-tag" data-i18n="tl_cur">Current</span></div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3 data-i18n="tl1_h">Software Engineering · 5th Semester</h3>
+            <p class="tl-org" data-i18n="tl1_org">Universidad</p>
+            <p class="tl-desc" data-i18n="tl1_d">Deepening backend architecture, databases, and software design patterns. Actively competing in academic events and hackathons.</p>
+            <div class="tl-tags"><span>Java</span><span>OOP</span><span>Databases</span><span>Algorithms</span></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-meta"><span class="tl-yr">2025</span></div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3 data-i18n="tl2_h">Hackathon Tech Tiger Code 2025</h3>
+            <p class="tl-org" data-i18n="tl2_org">External Competition</p>
+            <p class="tl-desc" data-i18n="tl2_d">Certificate of participation in the Tech Tiger Code 2025 Hackathon, competing to build innovative solutions under time pressure.</p>
+            <div class="tl-tags"><span>Hackathon</span><span>Teamwork</span><span>Problem Solving</span></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-meta"><span class="tl-yr">2024</span></div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3 data-i18n="tl3_h">Roles &amp; Permissions System</h3>
+            <p class="tl-org" data-i18n="tl3_org">Personal Project</p>
+            <p class="tl-desc" data-i18n="tl3_d">Full role-based access control system in Java — users, roles and granular permission management with structured backend architecture.</p>
+            <div class="tl-tags"><span>Java</span><span>RBAC</span><span>Security</span></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-meta"><span class="tl-yr">2023</span></div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3 data-i18n="tl4_h">Tech Fair — UTEG</h3>
+            <p class="tl-org">Universidad Tecnológica Empresarial de Guayaquil</p>
+            <p class="tl-desc" data-i18n="tl4_d">Certificate of participation in the Technology Fair, showcasing academic and practical software development skills.</p>
+            <div class="tl-tags"><span>Exhibition</span><span>University</span></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-meta"><span class="tl-yr">2023</span></div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3 data-i18n="tl5_h">Peluqueria Canina · CRUD App</h3>
+            <p class="tl-org" data-i18n="tl5_org">University Project</p>
+            <p class="tl-desc" data-i18n="tl5_d">First full CRUD desktop app for a canine grooming salon using Java and MySQL.</p>
+            <div class="tl-tags"><span>Java</span><span>MySQL</span><span>GUI</span></div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-meta"><span class="tl-yr">2022</span></div>
+          <div class="tl-dot"></div>
+          <div class="tl-body">
+            <h3 data-i18n="tl6_h">Started Software Engineering</h3>
+            <p class="tl-org" data-i18n="tl6_org">Universidad · Semester 1</p>
+            <p class="tl-desc" data-i18n="tl6_d">First lines of code, first algorithms, first taste of building software.</p>
+            <div class="tl-tags"><span>C</span><span>Algorithms</span><span>Logic</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       CERTIFICATIONS
+  ───────────────────────────────────── -->
+  <section class="section" id="certs">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">03</span>
+        <h2 data-i18n="certs_title">Certifications</h2>
+        <span class="sec-line"></span>
+      </div>
+
+      <div class="certs-grid">
+        <div class="certs-col">
+          <h3 class="certs-col-h"><span class="accent">✦</span> <span data-i18n="certs_earned">Earned</span></h3>
+          <div class="cert-list">
+            <div class="cert-item">
+              <div class="cert-ico"><i class="fas fa-database"></i></div>
+              <div><p class="cert-name" data-i18n="c1">Relational Databases</p><p class="cert-sub" data-i18n="cert_type">Certification</p></div>
+              <span class="cert-dot"></span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-ico"><i class="fas fa-university"></i></div>
+              <div><p class="cert-name" data-i18n="c2">Tech Fair Participation — UTEG</p><p class="cert-sub" data-i18n="cert_part">Certificate of Participation</p></div>
+              <span class="cert-dot"></span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-ico"><i class="fas fa-microchip"></i></div>
+              <div><p class="cert-name" data-i18n="c3">Arduino</p><p class="cert-sub" data-i18n="cert_type">Certification</p></div>
+              <span class="cert-dot"></span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-ico"><i class="fas fa-brain"></i></div>
+              <div><p class="cert-name" data-i18n="c4">Deep Learning</p><p class="cert-sub" data-i18n="cert_type">Certification</p></div>
+              <span class="cert-dot"></span>
+            </div>
+            <div class="cert-item">
+              <div class="cert-ico"><i class="fas fa-trophy"></i></div>
+              <div><p class="cert-name" data-i18n="c5">Hackathon Tech Tiger Code 2025</p><p class="cert-sub" data-i18n="cert_part">Certificate of Participation</p></div>
+              <span class="cert-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="certs-col">
+          <h3 class="certs-col-h"><span class="accent">⟳</span> <span data-i18n="certs_progress">In Progress</span></h3>
+          <div class="cert-list">
+            <div class="cert-item cert-item--prog">
+              <div class="cert-ico"><i class="fas fa-leaf"></i></div>
+              <div class="cert-prog-wrap">
+                <p class="cert-name" data-i18n="cr1">API Development with Spring Boot</p>
+                <p class="cert-sub" data-i18n="cert_course">Course in Progress</p>
+                <div class="prog-bar"><div class="prog-fill" style="width:65%"></div></div>
+              </div>
+            </div>
+            <div class="cert-item cert-item--prog">
+              <div class="cert-ico"><i class="fas fa-shield-halved"></i></div>
+              <div class="cert-prog-wrap">
+                <p class="cert-name" data-i18n="cr2">Spring Security</p>
+                <p class="cert-sub" data-i18n="cert_course">Course in Progress</p>
+                <div class="prog-bar"><div class="prog-fill" style="width:40%"></div></div>
+              </div>
+            </div>
+            <div class="cert-item cert-item--prog">
+              <div class="cert-ico"><i class="fas fa-cubes"></i></div>
+              <div class="cert-prog-wrap">
+                <p class="cert-name" data-i18n="cr3">Microservices with Spring Cloud</p>
+                <p class="cert-sub" data-i18n="cert_course">Course in Progress</p>
+                <div class="prog-bar"><div class="prog-fill" style="width:25%"></div></div>
+              </div>
+            </div>
+            <div class="cert-item cert-item--prog">
+              <div class="cert-ico"><i class="fas fa-globe"></i></div>
+              <div class="cert-prog-wrap">
+                <p class="cert-name" data-i18n="cr4">Fullstack Java Web — JSP + JPA</p>
+                <p class="cert-sub" data-i18n="cert_course">Course in Progress</p>
+                <div class="prog-bar"><div class="prog-fill" style="width:30%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       PROJECTS
+  ───────────────────────────────────── -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">04</span>
+        <h2 data-i18n="proj_title">Projects</h2>
+        <span class="sec-line"></span>
+        <div class="view-btns">
+          <button class="vb active" id="vbGrid" title="Grid"><i class="fas fa-grip"></i></button>
+          <button class="vb" id="vbList" title="List"><i class="fas fa-list"></i></button>
+        </div>
+      </div>
+
+      <!-- Grid view -->
+      <div class="proj-grid" id="projGrid">
+        <a href="https://github.com/24kgolden/LoginValidatorSwing" target="_blank" rel="noopener" class="pcard">
+          <div class="pcard-img"><img src="login.png" alt="Login Validator" class="pimg"/></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p1_n">Login Validator</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p1_d">Desktop login validation built with Java Swing. Authentication with clean dark UI and credential management.</p>
+            <div class="ptags"><span>Java</span><span>Swing</span><span>GUI</span></div>
+          </div>
+        </a>
+
+        <a href="https://github.com/24kgolden/Sistema-de-Roles-y-Permisos" target="_blank" rel="noopener" class="pcard pcard--feat">
+          <div class="pcard-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p2_n">Roles &amp; Permissions</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p2_d">Role-based access control in Java. Manages users, roles and granular permissions with structured backend architecture.</p>
+            <div class="ptags"><span>Java</span><span>RBAC</span><span>Security</span></div>
+          </div>
+        </a>
+
+        <a href="https://github.com/24kgolden/Proyecto-Crud?tab=readme-ov-file" target="_blank" rel="noopener" class="pcard">
+          <div class="pcard-img"><img src="peluqueria.png" alt="Peluqueria Canina" class="pimg"/></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p3_n">Peluqueria Canina</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p3_d">Full CRUD desktop app for a canine grooming salon built in Java with MySQL backend.</p>
+            <div class="ptags"><span>Java</span><span>MySQL</span><span>CRUD</span></div>
+          </div>
+        </a>
+
+        <div class="pcard pcard--code">
+          <div class="pcard-body" style="padding-top:var(--sp3)">
+            <div class="pcard-head">
+              <h3 data-i18n="p4_n">Java Snippet</h3>
+            </div>
+            <!-- Mini terminal matching hero style -->
+            <div class="mini-terminal">
+              <div class="terminal-head">
+                <span class="t-btn t-red"></span>
+                <span class="t-btn t-yellow"></span>
+                <span class="t-btn t-green"></span>
+                <span class="t-label">HelloWorld.java</span>
+              </div>
+              <div class="terminal-body">
+                <pre class="codebox" id="liveCode"><code id="liveEl"></code><span class="lcursor" id="lcursor">█</span></pre>
+              </div>
+            </div>
+            <div class="ptags"><span>Java</span><span>OOP</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- List view -->
+      <div class="proj-list hidden" id="projList">
+        <div class="pl-head">
+          <span data-i18n="pl_proj">Project</span>
+          <span data-i18n="pl_stack">Stack</span>
+          <span data-i18n="pl_yr">Year</span>
+          <span></span>
+        </div>
+        <a href="https://github.com/24kgolden/LoginValidatorSwing" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p1_n">Login Validator</span>
+          <span class="pl-stack">Java · Swing · GUI</span>
+          <span class="pl-yr">2023</span>
+          <span class="pl-arr">↗</span>
+        </a>
+        <a href="https://github.com/24kgolden/Sistema-de-Roles-y-Permisos" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p2_n">Roles &amp; Permissions</span>
+          <span class="pl-stack">Java · RBAC · Security</span>
+          <span class="pl-yr">2024</span>
+          <span class="pl-arr">↗</span>
+        </a>
+        <a href="https://github.com/24kgolden/Proyecto-Crud?tab=readme-ov-file" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p3_n">Peluqueria Canina</span>
+          <span class="pl-stack">Java · MySQL · CRUD</span>
+          <span class="pl-yr">2023</span>
+          <span class="pl-arr">↗</span>
+        </a>
+        <div class="pl-row no-link">
+          <span class="pl-name" data-i18n="p4_n">Java Snippet</span>
+          <span class="pl-stack">Java · OOP</span>
+          <span class="pl-yr">2023</span>
+          <span class="pl-arr" style="opacity:.3">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       SKILLS
+  ───────────────────────────────────── -->
+  <section class="section" id="skills">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">05</span>
+        <h2 data-i18n="sk_title">Skills</h2>
+        <span class="sec-line"></span>
+      </div>
+
+      <div class="sk-layout">
+        <!-- Icon cards -->
+        <div class="sk-cards">
+          <div class="sk-group">
+            <p class="sk-label"><span class="accent">//</span> Frontend</p>
+            <div class="sk-row">
+              <div class="sk-card"><i class="fab fa-html5"></i><span>HTML5</span></div>
+              <div class="sk-card"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+              <div class="sk-card"><i class="fab fa-js"></i><span>JavaScript</span></div>
+            </div>
+          </div>
+          <div class="sk-group">
+            <p class="sk-label"><span class="accent">//</span> Backend</p>
+            <div class="sk-row">
+              <div class="sk-card"><i class="fab fa-java"></i><span>Java</span></div>
+              <div class="sk-card"><i class="fas fa-leaf"></i><span>Spring Boot</span></div>
+              <div class="sk-card"><i class="fa-brands fa-mysql"></i><span>MySQL</span></div>
+            </div>
+          </div>
+          <div class="sk-group">
+            <p class="sk-label"><span class="accent">//</span> <span data-i18n="sk_tools">Tools &amp; DevOps</span></p>
+            <div class="sk-row">
+              <div class="sk-card"><i class="fab fa-docker"></i><span>Docker</span></div>
+              <div class="sk-card"><i class="fab fa-git-alt"></i><span>Git</span></div>
+              <div class="sk-card"><i class="fab fa-github"></i><span>GitHub</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proficiency bars -->
+        <div class="sk-bars">
+          <p class="sk-label"><span class="accent">//</span> <span data-i18n="sk_prof">Proficiency</span></p>
+          <div class="bar-list">
+            <div class="bar-row" data-pct="85"><div class="bar-info"><span class="bar-name">Java</span><span class="bar-pct accent">85%</span></div><div class="bar-track"><div class="bar-fill"></div></div></div>
+            <div class="bar-row" data-pct="75"><div class="bar-info"><span class="bar-name">MySQL</span><span class="bar-pct accent">75%</span></div><div class="bar-track"><div class="bar-fill"></div></div></div>
+            <div class="bar-row" data-pct="70"><div class="bar-info"><span class="bar-name">HTML / CSS</span><span class="bar-pct accent">70%</span></div><div class="bar-track"><div class="bar-fill"></div></div></div>
+            <div class="bar-row" data-pct="60"><div class="bar-info"><span class="bar-name">Spring Boot</span><span class="bar-pct accent">60%</span></div><div class="bar-track"><div class="bar-fill"></div></div></div>
+            <div class="bar-row" data-pct="55"><div class="bar-info"><span class="bar-name">JavaScript</span><span class="bar-pct accent">55%</span></div><div class="bar-track"><div class="bar-fill"></div></div></div>
+            <div class="bar-row" data-pct="50"><div class="bar-info"><span class="bar-name">Docker</span><span class="bar-pct accent">50%</span></div><div class="bar-track"><div class="bar-fill"></div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       GITHUB ACTIVITY
+  ───────────────────────────────────── -->
+  <section class="section" id="github">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">06</span>
+        <h2 data-i18n="gh_title">GitHub</h2>
+        <span class="sec-line"></span>
+      </div>
+
+      <div class="gh-layout">
+
+        <!-- Profile card -->
+        <div class="gh-profile" id="ghProfile">
+          <div class="gh-info">
+            <p class="gh-name" id="ghName">24kgolden</p>
+            <p class="gh-bio" id="ghBio">Loading…</p>
+            <div class="gh-stats">
+              <div class="gh-stat"><span class="gh-stat-n" id="ghRepos">—</span><span class="gh-stat-l" data-i18n="gh_repos">Repos</span></div>
+              <div class="gh-stat-div"></div>
+              <div class="gh-stat"><span class="gh-stat-n" id="ghFollowers">—</span><span class="gh-stat-l" data-i18n="gh_followers">Followers</span></div>
+              <div class="gh-stat-div"></div>
+              <div class="gh-stat"><span class="gh-stat-n" id="ghFollowing">—</span><span class="gh-stat-l" data-i18n="gh_following">Following</span></div>
+            </div>
+          </div>
+          <a href="https://github.com/24kgolden" target="_blank" rel="noopener" class="gh-link">
+            <i class="fab fa-github"></i> <span data-i18n="gh_view">View Profile</span> ↗
+          </a>
+        </div>
+
+        <!-- Recent repos -->
+        <div class="gh-repos-col">
+          <p class="gh-col-label"><span class="accent">//</span> <span data-i18n="gh_recent">Recent Repositories</span></p>
+          <div class="gh-repo-list" id="ghRepoList">
+            <!-- filled by JS -->
+            <div class="gh-loading"><span class="gh-spinner"></span> <span data-i18n="gh_loading">Fetching from GitHub…</span></div>
+          </div>
+        </div>
+
+        <!-- Recent events -->
+        <div class="gh-events-col">
+          <p class="gh-col-label"><span class="accent">//</span> <span data-i18n="gh_activity">Recent Activity</span></p>
+          <div class="gh-event-list" id="ghEventList">
+            <div class="gh-loading"><span class="gh-spinner"></span> <span data-i18n="gh_loading">Fetching from GitHub…</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       GITHUB ACTIVITY
+  ───────────────────────────────────── -->
+  <section class="section" id="github">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">06</span>
+        <h2 data-i18n="gh_title">GitHub Activity</h2>
+        <span class="sec-line"></span>
+        <a href="https://github.com/24kgolden" target="_blank" rel="noopener" class="gh-link-btn">
+          <i class="fab fa-github"></i> <span data-i18n="gh_view">View Profile</span> ↗
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="gh-stats" id="ghStats">
+        <div class="gh-stat-card" id="ghRepos">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+        <div class="gh-stat-card" id="ghFollowers">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+        <div class="gh-stat-card" id="ghFollowing">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+        <div class="gh-stat-card" id="ghStars">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+      </div>
+
+      <!-- Recent repos -->
+      <div class="gh-section-label">
+        <span class="accent">//</span>
+        <span data-i18n="gh_repos">Recent Repositories</span>
+      </div>
+      <div class="gh-repos" id="ghRepoList">
+        <!-- injected by JS -->
+        <div class="gh-repos-loading">
+          <span class="gh-dot"></span>
+          <span data-i18n="gh_loading">Fetching from GitHub...</span>
+        </div>
+      </div>
+
+      <!-- Recent commits -->
+      <div class="gh-section-label" style="margin-top:var(--sp6)">
+        <span class="accent">//</span>
+        <span data-i18n="gh_commits">Recent Commits</span>
+      </div>
+      <div class="gh-commits" id="ghCommitList">
+        <div class="gh-repos-loading">
+          <span class="gh-dot"></span>
+          <span data-i18n="gh_loading">Fetching from GitHub...</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       CONTACT
+  ───────────────────────────────────── -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">07</span>
+        <h2 data-i18n="ct_title">Contact</h2>
+        <span class="sec-line"></span>
+      </div>
+      <div class="ct-layout">
+        <div class="ct-info">
+          <p class="ct-headline" data-i18n="ct_hl">Have a project in mind<br>or want to connect?</p>
+          <p class="ct-sub" data-i18n="ct_sub">I'm always open to new opportunities, collaborations, or just a good conversation about tech.</p>
+          <div class="ct-email">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:edwarddelcastillo4@gmail.com">edwarddelcastillo4@gmail.com</a>
+          </div>
+          <div class="ct-socials">
+            <a href="https://www.linkedin.com/in/edwar-ram%C3%ADrez-11b995270/" target="_blank" rel="noopener" class="csoc"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/24kgolden" target="_blank" rel="noopener" class="csoc"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/666_serpico" target="_blank" rel="noopener" class="csoc"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="mailto:edwarddelcastillo4@gmail.com" class="csoc"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <form class="ct-form" action="https://getform.io/f/adrnrela" method="POST">
+          <div class="form-row">
+            <div class="ff"><label data-i18n="f_name">Name</label><input type="text" name="name" data-i18n-ph="f_ph_name" placeholder="John Doe" required/></div>
+            <div class="ff"><label data-i18n="f_email">Email</label><input type="email" name="email" placeholder="john@email.com" required/></div>
+          </div>
+          <div class="ff"><label data-i18n="f_msg">Message</label><textarea name="message" data-i18n-ph="f_ph_msg" placeholder="Tell me about your project..." required></textarea></div>
+          <input type="hidden" name="_gotcha" style="display:none!important">
+          <button type="submit" class="btn-solid"><span data-i18n="f_send">Send Message</span> <i class="fas fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       FOOTER
+  ───────────────────────────────────── -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-top">
+        <a href="#home" class="nav-logo">ER<span class="accent">.</span></a>
+        <nav class="footer-links">
+          <a href="#about"    data-i18n="nav_about">About</a>
+          <a href="#timeline" data-i18n="nav_timeline">Timeline</a>
+          <a href="#certs"    data-i18n="nav_certs">Certs</a>
+          <a href="#projects" data-i18n="nav_projects">Projects</a>
+          <a href="#skills"   data-i18n="nav_skills">Skills</a>
+          <a href="#github"   data-i18n="nav_github">GitHub</a>
+          <a href="#contact"  data-i18n="nav_contact">Contact</a>
+        </nav>
+        <div class="footer-soc">
+          <a href="https://github.com/24kgolden"                          target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/edwar-ram%C3%ADrez-11b995270/" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/666_serpico"                             target="_blank" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="mailto:edwarddelcastillo4@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="footer-div"></div>
+      <div class="footer-bot">
+        <p>&copy; <span id="yr"></span> Edwar Ramírez. <span data-i18n="f_rights">All rights reserved.</span></p>
+        <p>☕ <span data-i18n="f_made">Built with coffee &amp; code</span> <span class="accent">♥</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

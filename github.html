@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GitHub Activity | Edwar Ramírez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="coffee-icon.png" type="image/png"/>
+</head>
+<body>
+  <canvas id="matrixCanvas"></canvas>
+  <div id="nav-placeholder"></div>
+
+<!-- ─────────────────────────────────────
+       GITHUB ACTIVITY
+  ───────────────────────────────────── -->
+  <section class="section" id="github">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">06</span>
+        <h2 data-i18n="gh_title">GitHub</h2>
+        <span class="sec-line"></span>
+      </div>
+
+      <div class="gh-layout">
+
+        <!-- Profile card -->
+        <div class="gh-profile" id="ghProfile">
+          <div class="gh-info">
+            <p class="gh-name" id="ghName">24kgolden</p>
+            <p class="gh-bio" id="ghBio">Loading…</p>
+            <div class="gh-stats">
+              <div class="gh-stat"><span class="gh-stat-n" id="ghRepos">—</span><span class="gh-stat-l" data-i18n="gh_repos">Repos</span></div>
+              <div class="gh-stat-div"></div>
+              <div class="gh-stat"><span class="gh-stat-n" id="ghFollowers">—</span><span class="gh-stat-l" data-i18n="gh_followers">Followers</span></div>
+              <div class="gh-stat-div"></div>
+              <div class="gh-stat"><span class="gh-stat-n" id="ghFollowing">—</span><span class="gh-stat-l" data-i18n="gh_following">Following</span></div>
+            </div>
+          </div>
+          <a href="https://github.com/24kgolden" target="_blank" rel="noopener" class="gh-link">
+            <i class="fab fa-github"></i> <span data-i18n="gh_view">View Profile</span> ↗
+          </a>
+        </div>
+
+        <!-- Recent repos -->
+        <div class="gh-repos-col">
+          <p class="gh-col-label"><span class="accent">//</span> <span data-i18n="gh_recent">Recent Repositories</span></p>
+          <div class="gh-repo-list" id="ghRepoList">
+            <!-- filled by JS -->
+            <div class="gh-loading"><span class="gh-spinner"></span> <span data-i18n="gh_loading">Fetching from GitHub…</span></div>
+          </div>
+        </div>
+
+        <!-- Recent events -->
+        <div class="gh-events-col">
+          <p class="gh-col-label"><span class="accent">//</span> <span data-i18n="gh_activity">Recent Activity</span></p>
+          <div class="gh-event-list" id="ghEventList">
+            <div class="gh-loading"><span class="gh-spinner"></span> <span data-i18n="gh_loading">Fetching from GitHub…</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────────────────────────────────────
+       GITHUB ACTIVITY
+  ───────────────────────────────────── -->
+  <section class="section" id="github">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">06</span>
+        <h2 data-i18n="gh_title">GitHub Activity</h2>
+        <span class="sec-line"></span>
+        <a href="https://github.com/24kgolden" target="_blank" rel="noopener" class="gh-link-btn">
+          <i class="fab fa-github"></i> <span data-i18n="gh_view">View Profile</span> ↗
+        </a>
+      </div>
+
+      <!-- Stats row -->
+      <div class="gh-stats" id="ghStats">
+        <div class="gh-stat-card" id="ghRepos">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+        <div class="gh-stat-card" id="ghFollowers">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+        <div class="gh-stat-card" id="ghFollowing">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+        <div class="gh-stat-card" id="ghStars">
+          <div class="gh-stat-loading"><span class="gh-dot"></span></div>
+        </div>
+      </div>
+
+      <!-- Recent repos -->
+      <div class="gh-section-label">
+        <span class="accent">//</span>
+        <span data-i18n="gh_repos">Recent Repositories</span>
+      </div>
+      <div class="gh-repos" id="ghRepoList">
+        <!-- injected by JS -->
+        <div class="gh-repos-loading">
+          <span class="gh-dot"></span>
+          <span data-i18n="gh_loading">Fetching from GitHub...</span>
+        </div>
+      </div>
+
+      <!-- Recent commits -->
+      <div class="gh-section-label" style="margin-top:var(--sp6)">
+        <span class="accent">//</span>
+        <span data-i18n="gh_commits">Recent Commits</span>
+      </div>
+      <div class="gh-commits" id="ghCommitList">
+        <div class="gh-repos-loading">
+          <span class="gh-dot"></span>
+          <span data-i18n="gh_loading">Fetching from GitHub...</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <div id="footer-placeholder"></div>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

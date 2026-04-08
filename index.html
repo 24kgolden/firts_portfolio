@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edwar Ramírez | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="coffee-icon.png" type="image/png"/>
+</head>
+<body>
+  <canvas id="matrixCanvas"></canvas>
+  <div id="nav-placeholder"></div>
+
+  <section class="hero" id="home">
+    <div class="hero-side hero-side--l">PORTFOLIO · 2025</div>
+    <div class="hero-side hero-side--r">BACKEND · JAVA · SYSTEMS</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">&lt; software.engineer /&gt;</p>
+      <h1 class="hero-title">
+        <span class="scramble" data-text="EDWAR">EDWAR</span>
+        <span class="scramble accent" data-text="RAMÍREZ">RAMÍREZ</span>
+      </h1>
+      <p class="hero-sub"><span id="typingEl"></span></p>
+      <div class="hero-status">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero_available">Available for opportunities</span>
+      </div>
+      <div class="hero-cta">
+        <a href="projects.html" class="btn-solid"><i class="fas fa-code"></i> <span data-i18n="btn_projects">View Projects</span></a>
+        <a href="contact.html"  class="btn-outline"><span data-i18n="btn_contact">Get In Touch</span></a>
+      </div>
+      <div class="hero-scroll">
+        <span data-i18n="hero_scroll">Scroll</span>
+        <span class="scroll-bar"></span>
+      </div>
+    </div>
+
+    <div class="hero-terminal">
+      <div class="terminal" id="heroTerminal">
+        <div class="terminal-head">
+          <span class="t-btn t-red"></span>
+          <span class="t-btn t-yellow"></span>
+          <span class="t-btn t-green"></span>
+          <span class="t-label">edwar@portfolio:~</span>
+          <span class="t-hint">try typing a command ↓</span>
+        </div>
+        <div class="terminal-body" id="termBody">
+          <p class="tl"><span class="tp">$</span> <span class="tc">whoami</span></p>
+          <p class="tl to" data-i18n="t_whoami">Edwar Ramírez — Backend Developer</p>
+          <p class="tg"></p>
+          <p class="tl"><span class="tp">$</span> <span class="tc">cat skills.txt</span></p>
+          <p class="tl to"><span class="tk">languages </span><span class="tv">Java · JavaScript · SQL</span></p>
+          <p class="tl to"><span class="tk">frameworks</span><span class="tv">Spring Boot · HTML · CSS</span></p>
+          <p class="tl to"><span class="tk">tools     </span><span class="tv">Docker · Git · MySQL</span></p>
+          <p class="tg"></p>
+          <p class="tl"><span class="tp">$</span> <span class="tc">ls projects/</span></p>
+          <p class="tl to ta">LoginValidator/&nbsp;&nbsp;RolesPerms/</p>
+          <p class="tl to ta">PeluqueriaCanina/</p>
+          <p class="tg"></p>
+          <p class="tl t-input-line">
+            <span class="tp">$</span>
+            <span class="t-input" id="termInput" contenteditable="true" spellcheck="false" autocorrect="off" autocapitalize="off"></span>
+            <span class="t-cursor" id="termCursor">█</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee">
+    <div class="marquee-inner">
+      <span>Java</span><span class="mx">✦</span><span>Spring Boot</span><span class="mx">✦</span>
+      <span>MySQL</span><span class="mx">✦</span><span>Docker</span><span class="mx">✦</span>
+      <span>Git</span><span class="mx">✦</span><span>HTML5</span><span class="mx">✦</span>
+      <span>CSS3</span><span class="mx">✦</span><span>JavaScript</span><span class="mx">✦</span>
+      <span>Backend Dev</span><span class="mx">✦</span><span>OOP</span><span class="mx">✦</span>
+      <span>REST APIs</span><span class="mx">✦</span><span>Linux</span><span class="mx">✦</span>
+      <span>Java</span><span class="mx">✦</span><span>Spring Boot</span><span class="mx">✦</span>
+      <span>MySQL</span><span class="mx">✦</span><span>Docker</span><span class="mx">✦</span>
+      <span>Git</span><span class="mx">✦</span><span>HTML5</span><span class="mx">✦</span>
+      <span>CSS3</span><span class="mx">✦</span><span>JavaScript</span><span class="mx">✦</span>
+      <span>Backend Dev</span><span class="mx">✦</span><span>OOP</span><span class="mx">✦</span>
+      <span>REST APIs</span><span class="mx">✦</span><span>Linux</span><span class="mx">✦</span>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

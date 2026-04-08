@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Edwar Ramírez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="icon" href="coffee-icon.png" type="image/png"/>
+</head>
+<body>
+  <canvas id="matrixCanvas"></canvas>
+  <div id="nav-placeholder"></div>
+
+<!-- ─────────────────────────────────────
+       PROJECTS
+  ───────────────────────────────────── -->
+  <section class="section" id="projects">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="sec-n">04</span>
+        <h2 data-i18n="proj_title">Projects</h2>
+        <span class="sec-line"></span>
+        <div class="view-btns">
+          <button class="vb active" id="vbGrid" title="Grid"><i class="fas fa-grip"></i></button>
+          <button class="vb" id="vbList" title="List"><i class="fas fa-list"></i></button>
+        </div>
+      </div>
+
+      <!-- Grid view -->
+      <div class="proj-grid" id="projGrid">
+        <a href="https://github.com/24kgolden/LoginValidatorSwing" target="_blank" rel="noopener" class="pcard">
+          <div class="pcard-img"><img src="login.png" alt="Login Validator" class="pimg"/></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p1_n">Login Validator</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p1_d">Desktop login validation built with Java Swing. Authentication with clean dark UI and credential management.</p>
+            <div class="ptags"><span>Java</span><span>Swing</span><span>GUI</span></div>
+          </div>
+        </a>
+
+        <a href="https://github.com/24kgolden/Sistema-de-Roles-y-Permisos" target="_blank" rel="noopener" class="pcard pcard--feat">
+          <div class="pcard-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p2_n">Roles &amp; Permissions</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p2_d">Role-based access control in Java. Manages users, roles and granular permissions with structured backend architecture.</p>
+            <div class="ptags"><span>Java</span><span>RBAC</span><span>Security</span></div>
+          </div>
+        </a>
+
+        <a href="https://github.com/24kgolden/Proyecto-Crud?tab=readme-ov-file" target="_blank" rel="noopener" class="pcard">
+          <div class="pcard-img"><img src="peluqueria.png" alt="Peluqueria Canina" class="pimg"/></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p3_n">Peluqueria Canina</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p3_d">Full CRUD desktop app for a canine grooming salon built in Java with MySQL backend.</p>
+            <div class="ptags"><span>Java</span><span>MySQL</span><span>CRUD</span></div>
+          </div>
+        </a>
+
+        <div class="pcard pcard--code">
+          <div class="pcard-body" style="padding-top:var(--sp3)">
+            <div class="pcard-head">
+              <h3 data-i18n="p4_n">Java Snippet</h3>
+            </div>
+            <!-- Mini terminal matching hero style -->
+            <div class="mini-terminal">
+              <div class="terminal-head">
+                <span class="t-btn t-red"></span>
+                <span class="t-btn t-yellow"></span>
+                <span class="t-btn t-green"></span>
+                <span class="t-label">HelloWorld.java</span>
+              </div>
+              <div class="terminal-body">
+                <pre class="codebox" id="liveCode"><code id="liveEl"></code><span class="lcursor" id="lcursor">█</span></pre>
+              </div>
+            </div>
+            <div class="ptags"><span>Java</span><span>OOP</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- List view -->
+      <div class="proj-list hidden" id="projList">
+        <div class="pl-head">
+          <span data-i18n="pl_proj">Project</span>
+          <span data-i18n="pl_stack">Stack</span>
+          <span data-i18n="pl_yr">Year</span>
+          <span></span>
+        </div>
+        <a href="https://github.com/24kgolden/LoginValidatorSwing" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p1_n">Login Validator</span>
+          <span class="pl-stack">Java · Swing · GUI</span>
+          <span class="pl-yr">2023</span>
+          <span class="pl-arr">↗</span>
+        </a>
+        <a href="https://github.com/24kgolden/Sistema-de-Roles-y-Permisos" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p2_n">Roles &amp; Permissions</span>
+          <span class="pl-stack">Java · RBAC · Security</span>
+          <span class="pl-yr">2024</span>
+          <span class="pl-arr">↗</span>
+        </a>
+        <a href="https://github.com/24kgolden/Proyecto-Crud?tab=readme-ov-file" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p3_n">Peluqueria Canina</span>
+          <span class="pl-stack">Java · MySQL · CRUD</span>
+          <span class="pl-yr">2023</span>
+          <span class="pl-arr">↗</span>
+        </a>
+        <div class="pl-row no-link">
+          <span class="pl-name" data-i18n="p4_n">Java Snippet</span>
+          <span class="pl-stack">Java · OOP</span>
+          <span class="pl-yr">2023</span>
+          <span class="pl-arr" style="opacity:.3">—</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div id="footer-placeholder"></div>
+  <script src="components.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

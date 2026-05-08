@@ -456,6 +456,29 @@ if(certSec) new IntersectionObserver(e=>{
   const USER = "24kgolden";
   const BASE = "https://api.github.com";
 
+  // ── Datos estáticos de respaldo (siempre se muestran primero) ──
+  const STATIC_PROFILE = {
+    public_repos: 12,
+    followers: 2,
+    following: 4,
+  };
+
+  const STATIC_REPOS = [
+    { name: "bytecode-portfolio",       html_url: "https://github.com/24kgolden/bytecode-portfolio",          description: "Personal developer portfolio built with vanilla HTML, CSS and JS.", language: "HTML",       stargazers_count: 0, forks_count: 0, updated_at: "2025-05-01" },
+    { name: "Cl-nica-Odontol-gica-Sonrisas", html_url: "https://github.com/24kgolden/Cl-nica-Odontol-gica-Sonrisas", description: "Dental clinic management system — patient records, appointments, Java + MySQL.", language: "Java", stargazers_count: 0, forks_count: 0, updated_at: "2025-04-10" },
+    { name: "Sistema-de-Roles-y-Permisos", html_url: "https://github.com/24kgolden/Sistema-de-Roles-y-Permisos",   description: "Role-based access control system in Java with granular permission management.", language: "Java",       stargazers_count: 0, forks_count: 0, updated_at: "2024-11-20" },
+    { name: "Proyecto-Crud",            html_url: "https://github.com/24kgolden/Proyecto-Crud",                description: "Full CRUD desktop app for a canine grooming salon — Java + MySQL.",    language: "Java",       stargazers_count: 0, forks_count: 0, updated_at: "2023-09-15" },
+    { name: "LoginValidatorSwing",      html_url: "https://github.com/24kgolden/LoginValidatorSwing",          description: "Desktop login validator with Java Swing, dark UI and credential management.", language: "Java", stargazers_count: 0, forks_count: 0, updated_at: "2023-06-10" },
+  ];
+
+  const STATIC_COMMITS = [
+    { msg: "Update portfolio sections and fix layout",  repo: "bytecode-portfolio",            date: "2d ago" },
+    { msg: "Add dental clinic module — patient records", repo: "Cl-nica-Odontol-gica-Sonrisas", date: "4w ago" },
+    { msg: "Refactor permission service layer",          repo: "Sistema-de-Roles-y-Permisos",   date: "6mo ago" },
+    { msg: "Fix CRUD delete confirmation dialog",        repo: "Proyecto-Crud",                 date: "1y ago" },
+    { msg: "Initial commit — login validator UI",        repo: "LoginValidatorSwing",           date: "2y ago" },
+  ];
+
   const LANG_COLORS = {
     Java:"#b07219", JavaScript:"#f1e05a", HTML:"#e34c26",
     CSS:"#563d7c", Python:"#3572A5", TypeScript:"#3178c6",
@@ -463,15 +486,15 @@ if(certSec) new IntersectionObserver(e=>{
   };
 
   function langDotClass(l) {
-    const map = {Java:"java",HTML:"html",CSS:"css",JavaScript:"js",Python:"python"};
+    const map = { Java:"java", HTML:"html", CSS:"css", JavaScript:"js", Python:"python" };
     return map[l] || "";
   }
 
   function timeAgo(dateStr) {
     const diff = Math.floor((Date.now() - new Date(dateStr)) / 1000);
-    if (diff < 3600)  return Math.floor(diff/60)  + "m ago";
-    if (diff < 86400) return Math.floor(diff/3600) + "h ago";
-    return Math.floor(diff/86400) + "d ago";
+    if (diff < 3600)  return Math.floor(diff / 60)   + "m ago";
+    if (diff < 86400) return Math.floor(diff / 3600)  + "h ago";
+    return Math.floor(diff / 86400) + "d ago";
   }
 
   function el(id) { return document.getElementById(id); }
@@ -491,52 +514,52 @@ if(certSec) new IntersectionObserver(e=>{
     const container = el("ghRepoList");
     if (!container) return;
     const d = LANG[lang];
+    const color = r => LANG_COLORS[r.language] || "#888";
 
-    const items = repos.slice(0, 6).map(r => {
-      const langDot = r.language
-        ? `<span class="gh-lang-dot ${langDotClass(r.language)}"></span><span>${r.language}</span>`
-        : "";
-      const color = LANG_COLORS[r.language] || "#888";
-      return `
-        <a href="${r.html_url}" target="_blank" rel="noopener" class="gh-repo-card">
-          <div class="gh-repo-top">
-            <span class="gh-repo-name">${r.name}</span>
-            <span class="gh-repo-arr">↗</span>
-          </div>
-          <p class="gh-repo-desc">${r.description || d.gh_no_desc}</p>
-          <div class="gh-repo-meta">
-            <span class="gh-repo-lang" style="--lc:${color}">
-              <span class="gh-lang-dot ${langDotClass(r.language)}" style="background:${color}"></span>
-              <span>${r.language || "—"}</span>
-            </span>
-            <span class="gh-stars">⭐ ${r.stargazers_count}</span>
-            <span>🍴 ${r.forks_count}</span>
-          </div>
-        </a>`;
-    }).join("");
-
-    container.innerHTML = items || `<p class="gh-error">${d.gh_error}</p>`;
+    container.innerHTML = repos.slice(0, 6).map(r => `
+      <a href="${r.html_url}" target="_blank" rel="noopener" class="gh-repo-card">
+        <div class="gh-repo-top">
+          <span class="gh-repo-name">${r.name}</span>
+          <span class="gh-repo-arr">↗</span>
+        </div>
+        <p class="gh-repo-desc">${r.description || d.gh_no_desc}</p>
+        <div class="gh-repo-meta">
+          <span class="gh-repo-lang" style="--lc:${color(r)}">
+            <span class="gh-lang-dot ${langDotClass(r.language)}" style="background:${color(r)}"></span>
+            <span>${r.language || "—"}</span>
+          </span>
+          <span class="gh-stars">⭐ ${r.stargazers_count}</span>
+          <span>🍴 ${r.forks_count}</span>
+        </div>
+      </a>`).join("");
   }
 
-  /* ── Render commits ── */
+  /* ── Render commits (desde datos estáticos) ── */
+  function renderStaticCommits() {
+    const container = el("ghCommitList");
+    if (!container) return;
+    container.innerHTML = STATIC_COMMITS.map(c => `
+      <div class="gh-commit-row">
+        <span class="gh-commit-dot"></span>
+        <div class="gh-commit-info">
+          <span class="gh-commit-msg">${c.msg}</span>
+          <span class="gh-commit-repo">${c.repo}</span>
+        </div>
+        <span class="gh-commit-date">${c.date}</span>
+      </div>`).join("");
+  }
+
+  /* ── Render commits (desde API) ── */
   function renderCommits(events) {
     const container = el("ghCommitList");
     if (!container) return;
-    const d = LANG[lang];
-
-    const pushEvents = events
-      .filter(e => e.type === "PushEvent")
-      .slice(0, 7);
-
-    if (!pushEvents.length) {
-      container.innerHTML = `<p class="gh-error">${d.gh_error}</p>`;
-      return;
-    }
+    const pushEvents = events.filter(e => e.type === "PushEvent").slice(0, 7);
+    if (!pushEvents.length) { renderStaticCommits(); return; }
 
     container.innerHTML = pushEvents.map(e => {
       const commit = e.payload.commits?.slice(-1)[0];
       if (!commit) return "";
-      const msg = commit.message.split("\n")[0];
+      const msg  = commit.message.split("\n")[0];
       const repo = e.repo.name.replace(`${USER}/`, "");
       return `
         <div class="gh-commit-row">
@@ -550,60 +573,68 @@ if(certSec) new IntersectionObserver(e=>{
     }).join("");
   }
 
-  /* ── Fetch everything ── */
-  async function fetchGitHub() {
+  /* ── Render con datos estáticos inmediatamente ── */
+  function renderStatic() {
+    renderStat("ghRepos",     STATIC_PROFILE.public_repos, "gh_repos_lbl");
+    renderStat("ghFollowers", STATIC_PROFILE.followers,    "gh_followers_lbl");
+    renderStat("ghFollowing", STATIC_PROFILE.following,    "gh_following_lbl");
+    renderStat("ghStars",     0,                           "gh_stars_lbl");
+    renderRepos(STATIC_REPOS);
+    renderStaticCommits();
+  }
+
+  /* ── Intentar enriquecer con la API (sin bloquear) ── */
+  async function tryEnrichFromAPI() {
+    try {
+      const profileRes = await fetch(`${BASE}/users/${USER}`);
+      if (!profileRes.ok) return; // rate limit u otro error → silencioso
+      const profile = await profileRes.json();
+
+      const reposRes = await fetch(`${BASE}/users/${USER}/repos?per_page=100&sort=updated`);
+      if (!reposRes.ok) return;
+      const repos = await reposRes.json();
+
+      if (!Array.isArray(repos)) return;
+
+      const totalStars = repos.reduce((s, r) => s + r.stargazers_count, 0);
+      renderStat("ghRepos",     profile.public_repos, "gh_repos_lbl");
+      renderStat("ghFollowers", profile.followers,     "gh_followers_lbl");
+      renderStat("ghFollowing", profile.following,     "gh_following_lbl");
+      renderStat("ghStars",     totalStars,            "gh_stars_lbl");
+
+      const sorted = [...repos].sort((a, b) =>
+        b.stargazers_count - a.stargazers_count ||
+        new Date(b.updated_at) - new Date(a.updated_at));
+      renderRepos(sorted);
+
+      const eventsRes = await fetch(`${BASE}/users/${USER}/events/public?per_page=30`);
+      if (!eventsRes.ok) return;
+      const events = await eventsRes.json();
+      if (Array.isArray(events)) renderCommits(events);
+
+    } catch (_) {
+      // Fallo silencioso — los datos estáticos ya están visibles
+    }
+  }
+
+  /* ── Init ── */
+  function fetchGitHub() {
     const ghSec = document.querySelector("#github");
     if (!ghSec) return;
 
-    async function doFetch() {
-      try {
-        const profileRes = await fetch(`${BASE}/users/${USER}`);
-        const profile    = await profileRes.json();
+    // 1. Mostrar datos estáticos inmediatamente (sin spinners)
+    renderStatic();
 
-        const reposRes = await fetch(`${BASE}/users/${USER}/repos?per_page=100&sort=updated`);
-        const repos    = await reposRes.json();
-        const totalStars = Array.isArray(repos)
-          ? repos.reduce((s, r) => s + r.stargazers_count, 0) : 0;
-
-        renderStat("ghRepos",     profile.public_repos,  "gh_repos_lbl");
-        renderStat("ghFollowers", profile.followers,      "gh_followers_lbl");
-        renderStat("ghFollowing", profile.following,      "gh_following_lbl");
-        renderStat("ghStars",     totalStars,             "gh_stars_lbl");
-
-        if (Array.isArray(repos)) {
-          const sorted = [...repos].sort((a,b) =>
-            b.stargazers_count - a.stargazers_count ||
-            new Date(b.updated_at) - new Date(a.updated_at));
-          renderRepos(sorted);
-        }
-
-        const eventsRes = await fetch(`${BASE}/users/${USER}/events/public?per_page=30`);
-        const events    = await eventsRes.json();
-        if (Array.isArray(events)) renderCommits(events);
-
-      } catch(err) {
-        const d = LANG[lang];
-        ["ghRepos","ghFollowers","ghFollowing","ghStars"].forEach(id => {
-          const c = el(id);
-          if (c) c.innerHTML = `<span class="gh-stat-num">—</span><span class="gh-stat-label">Error</span>`;
-        });
-        const rl = el("ghRepoList");
-        const cl = el("ghCommitList");
-        if (rl) rl.innerHTML = `<p class="gh-error">${d.gh_error}</p>`;
-        if (cl) cl.innerHTML = `<p class="gh-error">${d.gh_error}</p>`;
-      }
-    }
-
-    // If already visible (standalone page), fetch immediately
+    // 2. Intentar actualizar desde la API en segundo plano
     const rect = ghSec.getBoundingClientRect();
     if (rect.top < window.innerHeight) {
-      doFetch();
+      tryEnrichFromAPI();
     } else {
-      let fetched = false;
+      let enriched = false;
       new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && !fetched) {
-          fetched = true;
-          doFetch();
+        if (entries[0].isIntersecting && !enriched) {
+          enriched = true;
+          tryEnrichFromAPI();
         }
       }, { threshold: 0.1 }).observe(ghSec);
     }

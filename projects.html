@@ -28,8 +28,10 @@
         </div>
       </div>
 
-      <!-- Grid view -->
+      <!-- Grid view — 3 columns × 2 rows -->
       <div class="proj-grid proj-grid--3" id="projGrid">
+
+        <!-- 1. Login Validator -->
         <a href="https://github.com/24kgolden/LoginValidatorSwing" target="_blank" rel="noopener" class="pcard">
           <div class="pcard-img"><img src="login.png" alt="Login Validator" class="pimg"/></div>
           <div class="pcard-body">
@@ -42,6 +44,7 @@
           </div>
         </a>
 
+        <!-- 2. Roles & Permissions -->
         <a href="https://github.com/24kgolden/Sistema-de-Roles-y-Permisos" target="_blank" rel="noopener" class="pcard pcard--feat">
           <div class="pcard-icon"><i class="fas fa-shield-halved"></i></div>
           <div class="pcard-body">
@@ -54,6 +57,7 @@
           </div>
         </a>
 
+        <!-- 3. Peluqueria Canina -->
         <a href="https://github.com/24kgolden/Proyecto-Crud?tab=readme-ov-file" target="_blank" rel="noopener" class="pcard">
           <div class="pcard-img"><img src="peluqueria.png" alt="Peluqueria Canina" class="pimg"/></div>
           <div class="pcard-body">
@@ -66,37 +70,41 @@
           </div>
         </a>
 
-      <a href="https://github.com/24kgolden/Cl-nica-Odontol-gica-Sonrisas" target="_blank" rel="noopener" class="pcard pcard--feat">
-  <div class="pcard-img">
-    <img 
-      src="clinica-sonrisas.png" 
-      alt="Clínica Odontológica Sonrisas" 
-      class="pimg"
-      onerror="this.parentElement.style.display='none'; this.parentElement.nextElementSibling.style.display='flex';"
-    />
-  </div>
-  <div class="pcard-img pcard-img--placeholder" style="display:none;">
-    <div class="img-placeholder">
-      <i class="fas fa-image"></i>
-      <span>clinica-sonrisas.png</span>
-    </div>
-  </div>
-  <div class="pcard-body">
-    <div class="pcard-head">
-      <h3 data-i18n="p5_n">Clínica Odontológica Sonrisas</h3>
-      <i class="fas fa-arrow-up-right-from-square parr"></i>
-    </div>
-    <p class="pdesc" data-i18n="p5_d">Dental clinic management system built in Java. Handles patient records, appointments and clinic data with a structured backend architecture.</p>
-    <div class="ptags"><span>Java</span><span>MySQL</span><span>GUI</span></div>
-  </div>
-</a>
+        <!-- 4. Clínica Odontológica Sonrisas -->
+        <a href="https://github.com/24kgolden/Cl-nica-Odontol-gica-Sonrisas" target="_blank" rel="noopener" class="pcard">
+          <div class="pcard-img">
+            <img src="clinica-sonrisas.png" alt="Clínica Odontológica Sonrisas" class="pimg"
+              onerror="this.parentElement.innerHTML='<div class=\'pcard-icon\'><i class=\'fas fa-tooth\'></i></div>'"/>
+          </div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p5_n">Clínica Odontológica Sonrisas</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p5_d">Dental clinic management system built in Java. Handles patient records, appointments and clinic data with a structured backend architecture.</p>
+            <div class="ptags"><span>Java</span><span>MySQL</span><span>GUI</span></div>
+          </div>
+        </a>
 
+        <!-- 5. Cert Generator (NEW) -->
+        <a href="https://github.com/24kgolden/cert-generator" target="_blank" rel="noopener" class="pcard pcard--feat">
+          <div class="pcard-icon"><i class="fas fa-file-certificate" style="font-size:2.4rem"></i></div>
+          <div class="pcard-body">
+            <div class="pcard-head">
+              <h3 data-i18n="p6_n">PDF Cert Generator</h3>
+              <i class="fas fa-arrow-up-right-from-square parr"></i>
+            </div>
+            <p class="pdesc" data-i18n="p6_d">Spring Boot SaaS that generates PDF certificates from CSV input. Includes QR codes per recipient and ZIP delivery.</p>
+            <div class="ptags"><span>Spring Boot</span><span>Java</span><span>PDF</span><span>QR</span></div>
+          </div>
+        </a>
+
+        <!-- 6. Java Snippet -->
         <div class="pcard pcard--code">
           <div class="pcard-body" style="padding-top:var(--sp3)">
             <div class="pcard-head">
               <h3 data-i18n="p4_n">Java Snippet</h3>
             </div>
-            <!-- Mini terminal matching hero style -->
             <div class="mini-terminal">
               <div class="terminal-head">
                 <span class="t-btn t-red"></span>
@@ -111,6 +119,7 @@
             <div class="ptags"><span>Java</span><span>OOP</span></div>
           </div>
         </div>
+
       </div>
 
       <!-- List view -->
@@ -145,6 +154,12 @@
           <span class="pl-yr">2025</span>
           <span class="pl-arr">↗</span>
         </a>
+        <a href="https://github.com/24kgolden/cert-generator" target="_blank" rel="noopener" class="pl-row">
+          <span class="pl-name" data-i18n="p6_n">PDF Cert Generator</span>
+          <span class="pl-stack">Spring Boot · Java · PDF</span>
+          <span class="pl-yr">2025</span>
+          <span class="pl-arr">↗</span>
+        </a>
         <div class="pl-row no-link">
           <span class="pl-name" data-i18n="p4_n">Java Snippet</span>
           <span class="pl-stack">Java · OOP</span>
@@ -152,8 +167,10 @@
           <span class="pl-arr" style="opacity:.3">—</span>
         </div>
       </div>
+
     </div>
   </section>
+
   <div id="footer-placeholder"></div>
   <script src="components.js"></script>
   <script src="script.js"></script>

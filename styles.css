@@ -485,11 +485,11 @@ body::after {
   grid-column: 2;
   grid-row: 1 / 4;
   flex: unset;
-  height: 100%;
-  min-height: 240px;
+  height: 220px;
+  min-height: unset;
 }
 .pcard--code .mini-terminal .terminal-body {
-  height: calc(100% - 38px);
+  height: calc(220px - 38px);
   max-height: none;
   overflow: hidden;
 }
